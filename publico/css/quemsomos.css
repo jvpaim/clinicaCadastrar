@@ -1,11 +1,13 @@
 .img{
-    border-radius: 100000px;
+    border-radius: 50%;
+    overflow: hidden;
     height: 270px;
-    left: 60px;
+    width: 350px;
+
 }
 
 .imgpsc{
-    padding: 50px;
+    padding: 90px;
     display: flex;
     align-items: center;
     justify-content: space-between;

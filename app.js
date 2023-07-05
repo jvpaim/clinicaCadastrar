@@ -1,6 +1,7 @@
 // Variáveis do express e do handlebars
 var express = require('express');
 var { engine } = require('express-handlebars');
+// const User = require('./models/User');
 
 // App
 var app = express();
@@ -23,6 +24,8 @@ app.use(bodyParser.json());
 
 // Configurar o body-parser para lidar com solicitações URL-encoded
 app.use(bodyParser.urlencoded({ extended: false }));
+
+
 
 // Rotas
 app.get('/', (req, res) => {
