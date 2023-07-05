@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/css/inicio.css">
+
+<div class="carousel">
+  <div class="carousel-inner">
+    <img src="https://cdn.pensador.com/img/imagens/le/ge/legendas_para_fotos_na_academia_f_l.jpg" alt="Imagem 1">
+    <img src="https://tecnofit-site.s3.sa-east-1.amazonaws.com/media/files/2023/02/03113747/nomes-para-academia.png" alt="Imagem 2">
+    <img src="https://blog.sistemapacto.com.br/wp-content/uploads/2022/04/Blog-650x350-segunda-1280x720-1.webp" alt="Imagem 3">
+    <img src="https://listenx.com.br/blog/wp-content/uploads/2021/11/textos-para-propaganda-de-academia.jpg" alt="Imagem 4">
+    <img src="https://www.smartfit.com.br/news/wp-content/uploads/2019/11/como-aumentar-o-peso-na-academia.jpg" alt="Imagem 5">
+    <img src="https://s.zst.com.br/cms-assets/2021/09/roupa-de-academia-feminina-2-.png" alt="Imagem 6">
+  </div>
+   <a class="carousel-prev" href="#">&lsaquo;</a>
+  <a class="carousel-next" href="#">&rsaquo;</a>
+</div>
+
+<p class="carousel-text">Bem-vindo à Fitnes Gym, a academia perfeita para alcançar seus objetivos de fitness! Oferecemos uma ampla gama de equipamentos de última geração, treinadores especializados e uma variedade de aulas de alta intensidade para ajudá-lo a atingir seu melhor condicionamento físico. Nossa equipe dedicada está pronta para orientá-lo em cada etapa do caminho, fornecendo programas personalizados e suporte contínuo. Venha se juntar a nós na Fitnes Gym e transforme sua saúde e bem-estar em grande estilo!</p>
+
+
+
+<script>
+   var carousel = document.querySelector('.carousel-inner');
+var images = document.querySelectorAll('.carousel-inner img');
+var currentIndex = 0;
+var totalImages = images.length;
+var prevButton = document.querySelector('.carousel-prev');
+var nextButton = document.querySelector('.carousel-next');
+
+function nextSlide() {
+  currentIndex++;
+  if (currentIndex >= totalImages) {
+    currentIndex = 0;
+  }
+  carousel.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+}
+
+function prevSlide() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = totalImages - 1;
+  }
+  carousel.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+}
+
+nextButton.addEventListener('click', nextSlide);
+prevButton.addEventListener('click', prevSlide);
+
+</script>

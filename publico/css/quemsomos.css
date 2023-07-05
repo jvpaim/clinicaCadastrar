@@ -1,0 +1,19 @@
+.img{
+    border-radius: 100000px;
+    height: 270px;
+    left: 60px;
+}
+
+.imgpsc{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.bodyqs{
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+}

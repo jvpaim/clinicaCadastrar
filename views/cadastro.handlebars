@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="/css/cadastro.css">
+
+<body>
+  <script id="loginTemplate" type="text/x-handlebars-template">
+    <div class="form-container">
+      <h1>Cadastrar-se</h1>
+      <form action="/cadastro" method="POST" id="form" onsubmit="return validarFormulario()">
+        <input type="text" name="name" placeholder="Nome" class="required" oninput="validarNome()">
+        <span class="span-required span-nome">Nome deve ter no mínimo 3 letras</span>
+        <input type="email" name="email" placeholder="Email" class="required" oninput="validarEmail()">
+        <span class="span-required span-email">Digite um email válido</span>
+        <input type="password" name="password" placeholder="Senha" class="required" oninput="validarSenha()">
+        <span class="span-required span-senha">Digite uma senha com no mínimo 8 caracteres</span>
+        <input type="number" name="numero" placeholder="Número" class="required" oninput="validarNumero()">
+        <span class="span-required span-numero">Digite um número válido</span>
+        <input type="text" name="weight" placeholder="Peso" class="weight">
+        <input type="text" name="height" placeholder="Altura" class="height">
+        <button type="submit">Login</button>
+
+      </form>
+    </div>
+  </script>
+
+  <link rel="stylesheet" href="/css/formulario.css">
+
+  <div id="myDiv"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+  <script>
+    // Dados para preencher o template (vazio neste exemplo)
+    var data = {};
+
+    // Compilar o template
+    var template = Handlebars.compile(document.getElementById('loginTemplate').innerHTML);
+
+    // Renderizar o template com os dados
+    var renderedHtml = template(data);
+
+    // Adicionar o HTML renderizado à página
+    document.getElementById('myDiv').innerHTML = renderedHtml;
+
+    // Funções para validação
+    function validarNome() {
+      var nomeInput = document.querySelector('input[name="name"]');
+      var spanNome = document.querySelector('.span-nome');
+      if (nomeInput.value.length < 3) {
+        setErro(nomeInput, spanNome);
+      } else {
+        removeErro(nomeInput, spanNome);
+      }
+    }
+
+    function validarEmail() {
+      var emailInput = document.querySelector('input[name="email"]');
+      var spanEmail = document.querySelector('.span-email');
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value)) {
+        setErro(emailInput, spanEmail);
+      } else {
+        removeErro(emailInput, spanEmail);
+      }
+    }
+
+    function validarSenha() {
+      var senhaInput = document.querySelector('input[name="password"]');
+      var spanSenha = document.querySelector('.span-senha');
+      if (senhaInput.value.length < 8) {
+        setErro(senhaInput, spanSenha);
+      } else {
+        removeErro(senhaInput, spanSenha);
+      }
+    }
+
+     function validarNumero() {
+      var numeroInput = document.querySelector('input[name="numero"]');
+      var spanNumero = document.querySelector('.span-numero');
+      if (isNaN(numeroInput.value)) {
+        setErro(numeroInput, spanNumero);
+      } else {
+        removeErro(numeroInput, spanNumero);
+      }
+    }
+
+    function setErro(input, span) {
+      input.style.border = '1px solid #e63636';
+      span.style.display = 'block';
+      span.style.color = 'red';
+    }
+
+    function removeErro(input, span) {
+      input.style.border = '';
+      span.style.display = 'none';
+    }
+
+    function validarFormulario() {
+      validarNome();
+      validarEmail();
+      validarSenha();
+      validarNumero();
+
+      var spans = document.querySelectorAll('.span-required');
+      var invalidFields = Array.from(spans).filter(function (span) {
+        return span.style.display !== 'none';
+      });
+
+      if (invalidFields.length > 0) {
+        return false; // Impede o envio do formulário se houver campos inválidos
+      }
+      
+      // Coloque qualquer lógica adicional aqui antes de enviar o formulário
+    }
+  </script>
+</body>

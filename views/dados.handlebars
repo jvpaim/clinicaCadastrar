@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/dados.css">
+<h1>Dados Cadastrados</h1>
+{{#if users.length}}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuário</th>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Número</th>
+                <th>Peso</th>
+                <th>Altura</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.password}}</td>
+                    <td>{{this.numero}}</td>
+                    <td>{{this.weight}}</td>
+                    <td>{{this.height}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>Nenhum usuário cadastrado.</p>
+{{/if}}
